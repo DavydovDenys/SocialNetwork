@@ -1,0 +1,8 @@
+.item {
+    background-color: darkseagreen;
+}
+
+.item img {
+    width: 300px;
+    padding: 0 0 10px 400px;
+}

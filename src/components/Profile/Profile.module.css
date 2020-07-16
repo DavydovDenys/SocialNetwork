@@ -1,0 +1,16 @@
+.content {
+  grid-area: c;
+  background-color: cornflowerblue;
+}
+
+.content img {
+  height: 300px;
+}
+
+.description {
+  color: black;
+}
+
+.posts {
+  color: azure;
+}

@@ -1,0 +1,8 @@
+.item {
+background-color: coral;
+}
+
+.item img {
+    width: 600px;
+    padding: 10px 10px 10px 300px;
+}

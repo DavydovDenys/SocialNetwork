@@ -1,0 +1,8 @@
+.item {
+    background-color: goldenrod;
+}
+
+.item img {
+    width: 400px;
+    padding: 0 0 10px 400px;
+}
