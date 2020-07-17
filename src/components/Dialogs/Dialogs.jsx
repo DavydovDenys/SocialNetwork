@@ -4,6 +4,8 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 
 const Dialogs = () => {
+  /*Тут идут данные с сервера*/
+
   let dialogsData = [
     {id: 1, name: 'Dima'},
     {id: 2, name: 'Andrew'},
@@ -15,17 +17,23 @@ const Dialogs = () => {
     {id: 1, message: 'Hello!'},
     {id: 2, message: 'Yo!'},
   ]
+  /*Обрабатываем массивы с данными с помощью функции map*/
+
+  let dialogs = dialogsData.map((d) => {
+    return <DialogItem name={d.name} id={d.id}/>;
+  });
+  let message = messagesData.map(m => <Message id={m.id} message={m.message}/>);
+
+  /*Отрисовка компонента*/
   return (
     <div className={s.dialogs}>
       <div className={s.dialogsItems}>
-        <DialogItem name={dialogsData[0].name} id={dialogsData[0].id} />
-        <DialogItem name={dialogsData[1].name} id={dialogsData[1].id} />
-        <DialogItem name={dialogsData[2].name} id={dialogsData[2].id} />
-        <DialogItem name={dialogsData[3].name} id={dialogsData[3].id} />
+        {/*Вывод компонента <DialogItem />*/}
+        {dialogs}
       </div>
       <div className={s.messages}>
-        <Message message={messagesData[0].message}/>
-        <Message message={messagesData[1].message}/>
+        {/*Вывод компонента <Message />*/}
+        {message}
       </div>
     </div>
   )
