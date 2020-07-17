@@ -4,6 +4,15 @@ import Post from './Post/Post';
 
 
 const MyPosts = (props) => {
+
+  let postsElements = [
+    {id: 1, message: 'Hello!', likesCount: 23},
+    {id: 2, message: 'Yo!', likesCount: 7},
+    {id: 3, message: 'My post', likesCount: 19},
+  ]
+
+  let post = postsElements.map( (p) => <Post id={p.id} message={p.message} likesCount={p.likesCount} /> );
+
   return (
     <div className={s.posts}>
       <div className={s.postsBlock}>
@@ -15,9 +24,7 @@ const MyPosts = (props) => {
           <button>Send</button>
         </div>
       </div>
-      <Post message='Hello! My post' like='12'/>
-      <Post message='My another post' like='23'/>
-      <Post message='My third post' like='3'/>
+      {post}
     </div>
   );
 }
