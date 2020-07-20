@@ -3,10 +3,10 @@ import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 
-const Dialogs = () => {
+const Dialogs = (props) => {
   /*Тут идут данные с сервера*/
 
-  let dialogsData = [
+  /*let dialogsData = [
     {id: 1, name: 'Dima'},
     {id: 2, name: 'Andrew'},
     {id: 3, name: 'Sveta'},
@@ -16,13 +16,11 @@ const Dialogs = () => {
   let messagesData = [
     {id: 1, message: 'Hello!'},
     {id: 2, message: 'Yo!'},
-  ]
+  ]*/
   /*Обрабатываем массивы с данными с помощью функции map*/
 
-  let dialogs = dialogsData.map((d) => {
-    return <DialogItem name={d.name} id={d.id}/>;
-  });
-  let message = messagesData.map(m => <Message id={m.id} message={m.message}/>);
+  let message = props.data.messagesData.map( (m) => <Message id={m.id} message={m.message}/> );
+  let dialogs = props.data.dialogsData.map( (d) => <DialogItem id={d.id} name={d.name}/> );
 
   /*Отрисовка компонента*/
   return (

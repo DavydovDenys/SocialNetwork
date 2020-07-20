@@ -10,7 +10,25 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 
 
-function App() {
+function App(props) {
+
+  let dialogsData = [
+    {id: 1, name: 'Dima'},
+    {id: 2, name: 'Andrew'},
+    {id: 3, name: 'Sveta'},
+    {id: 4, name: 'Ron'},
+  ]
+
+  let messagesData = [
+    {id: 1, message: 'Hello!'},
+    {id: 2, message: 'Yo!'},
+  ]
+
+  let dialogs = {dialogsData, messagesData}
+
+  /*Profile Data*/
+  let profileData = props.data.postElements
+
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -20,8 +38,8 @@ function App() {
         <Route path='/music' component={Music}/>
         <Route path='/settings' component={Settings}/>
         <div className='app-wrapper-content'>
-          <Route path='/profile' component={Profile}/>
-          <Route exact path='/dialogs' component={Dialogs}/>
+          <Route path='/profile' render={() => <Profile data={profileData} />}/>
+          <Route path='/dialogs' render={() => <Dialogs data={dialogs}/>}/>
         </div>
       </div>
     </BrowserRouter>
