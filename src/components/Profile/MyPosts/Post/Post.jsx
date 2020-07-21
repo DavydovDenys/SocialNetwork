@@ -2,8 +2,7 @@ import React from 'react';
 import s from './Post.module.css'
 
 const Post = (props) => {
-  /*let message = props.message
-  let like = props.likesCount*/
+
   return (
     <div className={s.post}>
       <div className={s.item}>  
