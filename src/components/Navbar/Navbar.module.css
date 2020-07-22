@@ -14,3 +14,9 @@
 .item a.activeLink {
   color: goldenrod;
 }
+
+.myfr {
+  padding-top: 100px;
+  padding-left: 35px;
+  color: darkorange;
+}

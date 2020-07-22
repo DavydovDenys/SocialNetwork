@@ -15,8 +15,8 @@ function App(props) {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
-        <Header/>
-        <Navbar/>
+        <Header />
+        <Navbar />
         <Route path='/news' component={News}/>
         <Route path='/music' component={Music}/>
         <Route path='/settings' component={Settings}/>

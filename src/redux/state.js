@@ -15,7 +15,7 @@ let state = {
       {id: 3, name: 'Sveta'},
       {id: 4, name: 'Ron'},
     ],
-  }
+  },
 }
 
 export default state;
