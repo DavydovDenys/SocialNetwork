@@ -16,6 +16,11 @@ let state = {
       {id: 4, name: 'Ron'},
     ],
   },
+  friends: [
+    {id: 1, name: 'Den'},
+    {id: 2, name: 'Armin'},
+    {id: 3, name: 'Bob'},
+  ],
 }
 
 export default state;

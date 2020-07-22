@@ -3,3 +3,9 @@
     border-radius: 50%;
     border: darkorange solid 3px;
 }
+
+.name {
+    padding-left: 10px;
+    padding-bottom: 5px;
+    color: chocolate;
+}

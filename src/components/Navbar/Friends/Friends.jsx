@@ -2,11 +2,11 @@ import React from "react";
 import s from './Friends.module.css'
 import Friend from '../Friends/Friend/Friend'
 
-const Friends = () => {
+const Friends = (props) => {
   return (
     <div className={s.friends}>
 
-      <Friend />
+      <Friend id={props.id} name={props.name} />
     </div>
   )
 }
