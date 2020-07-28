@@ -5,6 +5,12 @@ import {NavLink} from "react-router-dom";
 const DialogItem = (props) => {
   let path = '/dialogs/' + props.id;
   let name = props.name;
+
+  let sendMessage = React.createRef();
+  let text = () => {
+    return alert(sendMessage.current.value)
+  }
+
   return (
     <div className={`${s.dialog} ${s.active}`}>
       <div>
@@ -14,6 +20,10 @@ const DialogItem = (props) => {
 
       <div className={s.link}>
         <NavLink to={path}>{name}</NavLink>
+      </div>
+      <div>
+        <textarea ref={sendMessage} cols="30" rows="2"></textarea>
+        <button onClick={text}>send</button>
       </div>
     </div>
   )
