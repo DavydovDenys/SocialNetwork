@@ -6,6 +6,7 @@ let state = {
     {id: 2, message: 'Yo!', likesCount: 7},
     {id: 3, message: 'My post', likesCount: 19},
   ],
+  defaultText: 'it-kamasutra.com',
   dialogsData: {
     messages: [
       {id: 1, message: 'Hello!'},
@@ -25,16 +26,24 @@ let state = {
   ],
 }
 
-export let addPost = (postMessage) => {
+window.state = state;
+
+export let addPost = () => {
   let newPost = {
     id: 4,
-    message: postMessage,
+    message: state.defaultText,
     likesCount: 3
   };
 
   state.profileData.push(newPost);
+  state.defaultText = '';
   rerenderEntireTree(state);
 
+}
+
+export const updateNewPost = (newText) => {
+  state.defaultText = newText;
+  rerenderEntireTree(state);
 }
 
 
