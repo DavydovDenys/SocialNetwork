@@ -7,8 +7,15 @@ const DialogItem = (props) => {
   let name = props.name;
 
   let sendMessage = React.createRef();
+
   let text = () => {
-    return alert(sendMessage.current.value)
+    props.addMessage()
+  }
+
+  const userMessageHandler = () => {
+    let userText = sendMessage.current.value;
+
+    props.displayMessageHandler(userText);
   }
 
   return (
@@ -22,7 +29,12 @@ const DialogItem = (props) => {
         <NavLink to={path}>{name}</NavLink>
       </div>
       <div>
-        <textarea ref={sendMessage} cols="30" rows="2"></textarea>
+        <textarea
+          onChange={userMessageHandler}
+          ref={sendMessage}
+          cols="30"
+          rows="2"
+          />
         <button onClick={text}>send</button>
       </div>
     </div>

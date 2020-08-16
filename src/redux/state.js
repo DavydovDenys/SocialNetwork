@@ -8,10 +8,7 @@ let state = {
   ],
   defaultText: 'it-kamasutra.com',
   dialogsData: {
-    messages: [
-      {id: 1, message: 'Hello!'},
-      {id: 2, message: 'Yo!'},
-    ],
+    messages: [],
     dialogs: [
       {id: 1, name: 'Dima'},
       {id: 2, name: 'Andrew'},
@@ -46,5 +43,22 @@ export const updateNewPost = (newText) => {
   rerenderEntireTree(state);
 }
 
+export const displayMessageHandler = (userText) => {
+
+  state.defaultText = userText
+  rerenderEntireTree(state);
+}
+
+export let addMessage = () => {
+  let message = {
+    id: 3,
+    message: state.defaultText
+  }
+
+  state.dialogsData.messages.push(message);
+  state.defaultText = '';
+  rerenderEntireTree(state);
+
+}
 
 export default state;
