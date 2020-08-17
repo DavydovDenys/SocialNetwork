@@ -6,7 +6,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import {addMessage, addPost, displayMessageHandler, updateNewPost} from "./redux/state";
 
-let rerenderEntireTree = () => {
+let rerenderEntireTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
       <App
@@ -21,7 +21,7 @@ let rerenderEntireTree = () => {
 }
 
 
-rerenderEntireTree();
+rerenderEntireTree(state);
 
 subscribe(rerenderEntireTree);
 // If you want your app to work offline and load faster, you can change

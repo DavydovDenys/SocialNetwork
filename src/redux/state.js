@@ -36,19 +36,19 @@ export let addPost = () => {
 
   state.profileData.push(newPost);
   state.defaultText = '';
-  rerenderEntireTree();
+  rerenderEntireTree(state);
 
 }
 
 export const updateNewPost = (newText) => {
   state.defaultText = newText;
-  rerenderEntireTree();
+  rerenderEntireTree(state);
 }
 
 export const displayMessageHandler = (userText) => {
 
   state.defaultText = userText
-  rerenderEntireTree();
+  rerenderEntireTree(state);
 }
 
 export let addMessage = () => {
@@ -59,7 +59,7 @@ export let addMessage = () => {
 
   state.dialogsData.messages.push(message);
   state.defaultText = '';
-  rerenderEntireTree();
+  rerenderEntireTree(state);
 
 }
 
