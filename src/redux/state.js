@@ -26,39 +26,57 @@ let store = {
     ],
   },
 
-  getState () {
+  getState() {
     return this._state
   },
 
-  _callSubscriber (state) {
-      console.log('state changed!!!')
-    },
+  _callSubscriber(state) {
+    console.log('state changed!!!')
+  },
 
   addPost() {
+    let message = this._state.defaultText;
     let newPost = {
       id: 4,
-      message: this._state.defaultText,
+      message,
       likesCount: 3
     };
 
     this._state.profileData.push(newPost);
     this._state.defaultText = '';
     this._callSubscriber(this._state);
-    },
+  },
 
 
-  updateNewPost (newText) {
+  updateNewPost(newText) {
     this._state.defaultText = newText;
     this._callSubscriber(this._state);
-    },
+  },
 
-    displayMessageHandler (userText) {
+  displayMessageHandler(userText) {
 
-      this._state.defaultText = userText
-      this._callSubscriber(this._state);
-    },
+    this._state.defaultText = userText
+    this._callSubscriber(this._state);
+  },
 
-    addMessage () {
+  addMessage() {
+    let message = {
+      id: 3,
+      message: this._state.defaultText
+    };
+
+    this._state.dialogsData.messages.push(message);
+    this._state.defaultText = '';
+    this._callSubscriber(this._state);
+
+  },
+
+  subscribe(observer) {
+    this._callSubscriber = observer;
+  },
+
+  dispatch(action) {
+    if (action.type === 'ADD-MESSAGE') {
       let message = {
         id: 3,
         message: this._state.defaultText
@@ -67,12 +85,12 @@ let store = {
       this._state.dialogsData.messages.push(message);
       this._state.defaultText = '';
       this._callSubscriber(this._state);
-
-    },
-
-    subscribe (observer) {
-      this._callSubscriber = observer;
-    },
+    }
+    else if (action.type === 'UPDATE-NEW-POST') {
+      this._state.defaultText = action.newText;
+      this._callSubscriber(this._state);
+    }
+  }
 }
 
 /*window.state = state;*/
@@ -84,9 +102,9 @@ let store = {
     likesCount: 3
   };*/
 
-  /*state.profileData.push(newPost);
-  state.defaultText = '';
-  rerenderEntireTree(state);
+/*state.profileData.push(newPost);
+state.defaultText = '';
+rerenderEntireTree(state);
 
 }
 */
