@@ -90,6 +90,22 @@ let store = {
       this._state.defaultText = action.newText;
       this._callSubscriber(this._state);
     }
+    else if (action.type === 'ADD-POST') {
+      let message = this._state.defaultText;
+      let newPost = {
+        id: 4,
+        message,
+        likesCount: 3
+      };
+
+      this._state.profileData.push(newPost);
+      this._state.defaultText = '';
+      this._callSubscriber(this._state);
+    }
+    else if (action.type === 'DISPLAY-MESSAGE-HANDLER') {
+      this._state.defaultText = action.userText;
+      this._callSubscriber(this._state);
+    }
   }
 }
 

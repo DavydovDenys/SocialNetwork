@@ -9,13 +9,15 @@ const DialogItem = (props) => {
   let sendMessage = React.createRef();
 
   let text = () => {
-    props.addMessage()
+    /*props.addMessage()*/
+    props.dispatch({type: 'ADD-MESSAGE'});
   }
 
   const userMessageHandler = () => {
     let userText = sendMessage.current.value;
 
-    props.displayMessageHandler(userText);
+    props.dispatch({type: 'DISPLAY-MESSAGE-HANDLER', userText})
+    /*props.displayMessageHandler(userText);*/
   }
 
   return (

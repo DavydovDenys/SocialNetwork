@@ -23,13 +23,15 @@ function App(props) {
         <div className='app-wrapper-content'>
           <Route path='/profile' render={() => <Profile
             state={props.state}
-            addPost={props.addPost}
-            updateNewPost={props.updateNewPost}/>}/>
+            dispatch={props.dispatch}
+            /*addPost={props.addPost}
+            updateNewPost={props.updateNewPost}*//>}/>
           <Route path='/dialogs' render={() =>
             <Dialogs
               state={props.state.dialogsData}
-              displayMessageHandler={props.displayMessageHandler}
-              addMessage={props.addMessage}/>}/>
+              dispatch={props.dispatch}
+              /*displayMessageHandler={props.displayMessageHandler}
+              addMessage={props.addMessage}*//>}/>
         </div>
       </div>
     </BrowserRouter>

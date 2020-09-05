@@ -9,8 +9,9 @@ const Dialogs = (props) => {
   let dialogs = props.state.dialogs.map( (d) => <DialogItem
                                                                       id={d.id}
                                                                       name={d.name}
-                                                                      displayMessageHandler={props.displayMessageHandler}
-                                                                      addMessage={props.addMessage}/> );
+                                                                      dispatch={props.dispatch}
+                                                                      /*displayMessageHandler={props.displayMessageHandler}
+                                                                      addMessage={props.addMessage}*//> );
 
   /*Отрисовка компонента*/
   return (
