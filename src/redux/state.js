@@ -34,7 +34,7 @@ let store = {
     console.log('state changed!!!')
   },
 
-  addPost() {
+  /*addPost() {
     let message = this._state.defaultText;
     let newPost = {
       id: 4,
@@ -45,21 +45,21 @@ let store = {
     this._state.profileData.push(newPost);
     this._state.defaultText = '';
     this._callSubscriber(this._state);
-  },
+  },*/
 
 
-  updateNewPost(newText) {
+  /*updateNewPost(newText) {
     this._state.defaultText = newText;
     this._callSubscriber(this._state);
-  },
+  },*/
 
-  displayMessageHandler(userText) {
+  /*displayMessageHandler(userText) {
 
     this._state.defaultText = userText
     this._callSubscriber(this._state);
-  },
+  },*/
 
-  addMessage() {
+  /*addMessage() {
     let message = {
       id: 3,
       message: this._state.defaultText
@@ -69,7 +69,7 @@ let store = {
     this._state.defaultText = '';
     this._callSubscriber(this._state);
 
-  },
+  },*/
 
   subscribe(observer) {
     this._callSubscriber = observer;
