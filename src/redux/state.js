@@ -1,3 +1,9 @@
+// используем константы для подсвечивания их в редакторе чтобы не ошибиться при написании action.type в dispatch
+const ADD_MESSAGE = 'ADD-MESSAGE'
+const UPDATE_NEW_POST ='UPDATE-NEW-POST'
+const ADD_POST = 'ADD-POST'
+const DISPLAY_MESSAGE_HANDLER = 'DISPLAY-MESSAGE-HANDLER'
+
 /*let rerenderEntireTree = () => {
   console.log('state changed!!!')
 }*/
@@ -76,7 +82,7 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === 'ADD-MESSAGE') {
+    if (action.type === ADD_MESSAGE) {  // action.type === 'ADD-MESSAGE'
       let message = {
         id: 3,
         message: this._state.defaultText
@@ -86,11 +92,11 @@ let store = {
       this._state.defaultText = '';
       this._callSubscriber(this._state);
     }
-    else if (action.type === 'UPDATE-NEW-POST') {
+    else if (action.type === UPDATE_NEW_POST) {  // action.type === 'UPDATE-NEW-POST'
       this._state.defaultText = action.newText;
       this._callSubscriber(this._state);
     }
-    else if (action.type === 'ADD-POST') {
+    else if (action.type === ADD_POST) {  // action.type === 'ADD-POST'
       let message = this._state.defaultText;
       let newPost = {
         id: 4,
@@ -102,7 +108,7 @@ let store = {
       this._state.defaultText = '';
       this._callSubscriber(this._state);
     }
-    else if (action.type === 'DISPLAY-MESSAGE-HANDLER') {
+    else if (action.type === DISPLAY_MESSAGE_HANDLER) {  // action.type === 'DISPLAY-MESSAGE-HANDLER'
       this._state.defaultText = action.userText;
       this._callSubscriber(this._state);
     }
@@ -153,5 +159,24 @@ export const subscribe = (observer) => {
 }
 */
 
+// создаем функции которые возвращают объект (action)
+export const addMessageActionCreator = () => {  //  return {type: 'ADD-MESSAGE'}
+  return {
+    type: ADD_MESSAGE
+  }
+}
+
+export const updateNewPostActionCreator = (text) => ({  //  return {type: 'UPDATE-NEW-POST', newText: text}
+  type: UPDATE_NEW_POST,
+  newText: text
+})
+
+export const addPostActionCreator = () => ({type: ADD_POST})  //  return {type: 'ADD-POST'}
+
+export const displayMessageHandlerActionCreator = (text) =>  //  return {type: 'DISPLAY-MESSAGE-HANDLER', userTExt: text}
+  ({
+    type: DISPLAY_MESSAGE_HANDLER,
+    userText: text
+  })
 
 export default store;
